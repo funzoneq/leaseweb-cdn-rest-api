@@ -22,8 +22,16 @@ class LeasewebCDN
     return "#{path}/#{timestamp}/#{signature}"
   end
   
-  def pull_zone (zoneID = 'all')
-    self.class.get create_url("/zones/pull/#customerNumber/#{zoneID}")
+  def zone (zoneID = 'all', zone_type = 'pull')
+    self.class.get create_url("/zones/#{type}/#customerNumber/#{zoneID}")
+  end
+  
+  def update_zone (zoneID, zone, zone_type = 'pull')
+    self.class.post(create_url("/zones/#{type}/#customerNumber/#{zoneID}"), :body => zone )
+  end
+  
+  def delete_zone (zoneID, zone_type = 'pull')
+    self.class.delete create_url("/zones/#{type}/#customerNumber/#{zoneID}")
   end
   
   def stats (type, granularity, timestamp_start, timestamp_end, cname)
