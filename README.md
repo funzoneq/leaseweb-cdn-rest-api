@@ -41,6 +41,8 @@ Get all pull|push|pushpull zones:
 zones = api.zone('all', 'pull')['success']
 ```
 
+Update a zone:
+
 ```ruby
 body = zones.first
 body['alias'] = (1..10).collect { |n| "#{n}.cdn.example.com" }.join(',')
