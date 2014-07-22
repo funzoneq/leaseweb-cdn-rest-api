@@ -22,15 +22,15 @@ class LeasewebCDN
     return "#{path}/#{timestamp}/#{signature}"
   end
   
-  def zone (zoneID = 'all', zone_type = 'pull')
+  def zone (zoneID = 'all', type = 'pull')
     self.class.get create_url("/zones/#{type}/#customerNumber/#{zoneID}")
   end
   
-  def update_zone (zoneID, zone, zone_type = 'pull')
+  def update_zone (zoneID, zone, type = 'pull')
     self.class.post(create_url("/zones/#{type}/#customerNumber/#{zoneID}"), :body => zone )
   end
   
-  def delete_zone (zoneID, zone_type = 'pull')
+  def delete_zone (zoneID, type = 'pull')
     self.class.delete create_url("/zones/#{type}/#customerNumber/#{zoneID}")
   end
   
