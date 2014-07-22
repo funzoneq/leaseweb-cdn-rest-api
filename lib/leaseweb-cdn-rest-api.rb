@@ -34,7 +34,7 @@ class LeasewebCDN
     self.class.delete create_url("/zones/#{type}/#customerNumber/#{zoneID}")
   end
   
-  def stats (type, granularity, timestamp_start, timestamp_end, cname)
+  def stats_cname (type, granularity, timestamp_start, timestamp_end, cname = 'all')
     self.class.get create_url("/stats/#{type}/#customerNumber/#{granularity}/#{timestamp_start}/#{timestamp_end}/#{cname}")
   end
   
@@ -44,6 +44,14 @@ class LeasewebCDN
   
   def stats_billing_region (type, granularity, timestamp_start, timestamp_end, cname, country, pop)
     self.class.get create_url("/stats/#{type}/#customerNumber/#{granularity}/#{timestamp_start}/#{timestamp_end}/#{cname}/#{country}/#{pop}")
+  end
+  
+  def stats_apicalls (year, month)
+    self.class.get create_url("/stats/api/#customerNumber/#{year}/#{month}")
+  end
+  
+  def avg_traffic
+    self.class.get create_url("/stats/traffic/#customerNumber")
   end
   
   def nine_five_percentile (billing_region, timestamp_start, timestamp_end)
@@ -62,8 +70,8 @@ class LeasewebCDN
     self.class.delete create_url("/content/purge/#customerNumber/#{zoneID}/#{expression}")
   end
   
-  def avg_traffic
-    self.class.get create_url("/stats/traffic/#customerNumber")
+  def search (query, zone_type = 'pull')
+    self.class.get create_url("/search/#{zone_type}/#customerNumber/#{query}")
   end
   
   def version
