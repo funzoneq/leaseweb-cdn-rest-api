@@ -35,7 +35,7 @@ All return values are the direct JSON responses from Leaseweb converted into a H
 
 See: [documentation](https://my.leasewebcdn.com/manuals/api/html/introduction.html)
 
-Get all pull|push|pushpull zones:
+Get all <pull|push|pushpull> zones:
 
 ```ruby
 zones = api.zone('all', 'pull')['success']
