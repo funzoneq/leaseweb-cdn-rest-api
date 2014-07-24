@@ -5,7 +5,7 @@ require 'httparty'
 
 class LeasewebCDN
   include HTTParty
-  debug_output $stderr
+  #debug_output $stderr
   
   base_uri 'https://api.leasewebcdn.com'
   

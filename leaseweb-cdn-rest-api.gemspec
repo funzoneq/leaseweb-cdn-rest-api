@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'leaseweb-cdn-rest-api'
-  s.version       = '1.0.1'
+  s.version       = '1.0.2'
   s.authors       = 'Arnoud Vermeer'
   s.email         = 'arnoud@tumblr.com'
   s.license       = 'Apache'
